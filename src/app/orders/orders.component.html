@@ -1,26 +1,38 @@
 <div class="card">
   <div class="card-body">
-    <form [formGroup]="angForm" novalidate>
+    <form [formGroup]="orderForm" novalidate>
       <div class="form-group">
         <div class="row">
           <label class="col-md-2" style="text-align: right; margin-top: 0.4rem">
             Order details
           </label>
-          <input type="text" class="form-control col-md-7" formControlName="order_data" #order_data />
+          <input
+            type="text"
+            class="form-control col-md-7"
+            formControlName="order_data"
+            #order_data
+          />
           <div class="col-md-3">
-            <button type="submit" class="btn btn-primary" (click)="addOrder(order_data.value)" [disabled]="angForm.pristine || angForm.invalid">
-              Send order
+            <button
+              type="submit"
+              class="btn btn-primary"
+              (click)="addOrder(order_data.value)"
+              [disabled]="orderForm.pristine || orderForm.invalid"
+            >
+              Place order
             </button>
           </div>
         </div>
       </div>
-      <div *ngIf="angForm.controls['order_data'].invalid &&
-              (
-                angForm.controls['order_data'].dirty ||
-                angForm.controls['order_data'].touched
-              )"
-        class="alert alert-danger">
-        <div *ngIf="angForm.controls['order_data'].errors.required">
+      <div
+        *ngIf="orderForm.controls['order_data'].invalid &&
+          (
+            orderForm.controls['order_data'].dirty ||
+            orderForm.controls['order_data'].touched
+          )"
+        class="alert alert-danger"
+      >
+        <div *ngIf="orderForm.controls['order_data'].errors.required">
           No information was given
         </div>
       </div>

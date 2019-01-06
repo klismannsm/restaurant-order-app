@@ -9,7 +9,7 @@ import Order from '../models/Order';
   styleUrls: ['./orders.component.scss']
 })
 export class OrdersComponent implements OnInit {
-  angForm: FormGroup;
+  orderForm: FormGroup;
   orders: Order[];
   order: Order;
 
@@ -18,7 +18,7 @@ export class OrdersComponent implements OnInit {
   }
 
   createForm() {
-    this.angForm = this.formBuilder.group({
+    this.orderForm = this.formBuilder.group({
       order_data: ['', Validators.required],
     });
   }
